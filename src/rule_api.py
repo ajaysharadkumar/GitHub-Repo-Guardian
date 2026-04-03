@@ -34,16 +34,16 @@ def apply_protection(repo_name, branch):
     response: requests.Response = requests.put(url, json=payload, headers=HEADERS)
 
     if response.status_code == 200:
-        print(f"  ✅ Protected: {repo_name}/{branch}")
+        print(f"   Protected: {repo_name}/{branch}")
     elif response.status_code == 404:
-        print(f"  ⚠️  Branch '{branch}' not found in {repo_name} — skipping")
+        print(f"    Branch '{branch}' not found in {repo_name} — skipping")
     elif response.status_code == 422:
-        print(f"  ⚠️  {repo_name} may be empty or archived — skipping")
+        print(f"    {repo_name} may be empty or archived — skipping")
     elif response.status_code == 403:
-        print(f"  ❌ No permission for {repo_name} — check token scopes")
+        print(f"   No permission for {repo_name} — check token scopes")
     else:
         error_msg: str = response.json().get('message', 'Unknown error')
-        print(f"  ❌ Failed {repo_name}: {response.status_code} — {error_msg}")
+        print(f"   Failed {repo_name}: {response.status_code} — {error_msg}")
 
 
 def main(repos: List[Dict[str, Any]]):
@@ -66,7 +66,7 @@ def main(repos: List[Dict[str, Any]]):
         # Slight delay to respect API secondary rate limits
         time.sleep(0.5)
 
-    print("\n✅ Done!")
+    print("\n Done!")
 
 
 if __name__ == "__main__":
