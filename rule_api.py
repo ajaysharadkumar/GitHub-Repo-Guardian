@@ -94,7 +94,7 @@ def main():
             continue
 
         print(f"→ {name} (default branch: {branch})")
-        apply_protection(name, branch)
+        # apply_protection(name, branch)
 
         # Slight delay to respect API secondary rate limits
         time.sleep(0.5)
