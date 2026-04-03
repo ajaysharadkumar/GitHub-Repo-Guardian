@@ -27,7 +27,7 @@ This project uses uv for lightning-fast dependency management. Ensure you have i
 ### **Installation**
 
 1. Clone the repository:  
-   git clone \[https://github.com/your-username/your-repo-name.git\](https://github.com/your-username/your-repo-name.git)  
+   git clone git@github.com:ajaysharadkumar/github_branch_protection.git
    cd your-repo-name
 
 2. Sync the environment:  
