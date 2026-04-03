@@ -44,7 +44,7 @@ def get_all_repos() -> List[Dict[str, Any]]:
 
 def main():
     if not TOKEN or not USERNAME:
-        print("❌ Error: GITHUB_TOKEN or GITHUB_USERNAME not found in environment.")
+        print("Error: GITHUB_TOKEN or GITHUB_USERNAME not found in environment.")
         return
 
     print(f"Fetching repos for '{USERNAME}'...\n")
