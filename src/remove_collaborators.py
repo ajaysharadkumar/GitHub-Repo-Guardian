@@ -29,9 +29,9 @@ def remove_collaborator(repo_name, collaborator_login):
     url: str = f"https://api.github.com/repos/{USERNAME}/{repo_name}/collaborators/{collaborator_login}"
     response: requests.Response = requests.delete(url, headers=HEADERS)
     if response.status_code == 204:
-        print(f"    🗑️  Removed: {collaborator_login}")
+        print(f"     Removed: {collaborator_login}")
     else:
-        print(f"    ❌ Failed to remove {collaborator_login}: {response.status_code}")
+        print(f"     Failed to remove {collaborator_login}: {response.status_code}")
 
 
 def main(repos: List[Dict[str, Any]]):
@@ -50,15 +50,15 @@ def main(repos: List[Dict[str, Any]]):
         others = [c for c in collaborators if c["login"].lower() != USERNAME.lower()]
 
         if not others:
-            print(f"   ✅ Only you — nothing to do")
+            print(f"    Only you — nothing to do")
         else:
             for collab in others:
-                print(f"   ⚠️  Found: {collab['login']} — removing...")
+                print(f"     Found: {collab['login']} — removing...")
                 # remove_collaborator(name, collab["login"])
 
         time.sleep(0.5)
 
-    print("\n✅ Done!")
+    print("\n Done!")
 
 
 if __name__ == "__main__":
